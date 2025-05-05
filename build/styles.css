@@ -528,7 +528,8 @@ input:checked+.gastro-toggle-slider:before {
 		display: flex;
 		flex-wrap: nowrap;
 		justify-content: center;
-		gap: 3px;
+		gap: 5px;
+		padding-right: 5px;
 	}
 
 	.gastro-action-btn {
