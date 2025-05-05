@@ -1,0 +1,604 @@
+/* Main Container Styles */
+.gastro-rechner-container {
+	font-family: "Roboto", Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+/* Theme Variations */
+.theme-light {
+	--primary-color: #041923;
+	--secondary-color: #123544;
+	--danger-color: #e74c3c;
+	--success-color: #2ecc71;
+	--error-color: #e74c3c;
+	--border-color: #6ad0ff;
+	--background-color: #1a242bfb;
+	--text-color: #ffffff;
+	--heading-color: #7fbcf9;
+	--table-alt-row: #173645;
+	--table-hover: #f96211;
+	--modal-backdrop: rgba(93, 157, 209, 0.31);
+}
+
+.theme-dark {
+	--primary-color: #2271b1;
+	--secondary-color: #135e96;
+	--danger-color: #dc3232;
+	--success-color: #46b450;
+	--error-color: #dc3232;
+	--border-color: #444;
+	--background-color: #23282d;
+	--text-color: #bbc8d4;
+	--heading-color: #fff;
+	--table-alt-row: #32373c;
+	--table-hover: #1d2327;
+	--modal-backdrop: rgba(0, 0, 0, 0.7);
+}
+
+.gastro-rechner-container.theme-dark {
+	background-color: var(--background-color);
+	color: var(--text-color);
+	border-radius: 4px;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Typography */
+.gastro-rechner-title {
+	color: var(--heading-color);
+	font-size: 14px;
+	padding-bottom: 10px;
+}
+
+h3 {
+	color: var(--heading-color);
+	font-size: 18px;
+	margin: 15px 0;
+}
+
+/* Message Notifications */
+.gastro-message {
+	padding: 10px 15px;
+	margin: 15px 0;
+	border-radius: 4px;
+	position: relative;
+	animation: fadeIn 0.3s;
+}
+
+.gastro-message.success {
+	background-color: var(--success-color);
+	color: white;
+}
+
+.gastro-message.error {
+	background-color: var(--error-color);
+	color: white;
+}
+
+.gastro-close-btn {
+	background: none;
+	border: none;
+	color: white;
+	font-size: 20px;
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	cursor: pointer;
+	opacity: 0.7;
+}
+
+.gastro-close-btn:hover {
+	opacity: 1;
+}
+
+/* Confirmation Card */
+.gastro-confirmation {
+	background-color: var(--background-color);
+	border: 1px solid var(--success-color);
+	border-radius: 4px;
+	padding: 15px;
+	margin: 20px 0;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	animation: slideInDown 0.4s;
+}
+
+.gastro-confirmation h3 {
+	color: var(--success-color);
+	margin-top: 0;
+}
+
+.gastro-confirmation-details {
+	margin: 15px 0;
+}
+
+.gastro-confirmation-details p {
+	margin: 5px 0;
+}
+
+/* Form Styles */
+.gastro-form {
+	background-color: var(--background-color);
+	border: 1px solid var(--border-color);
+	border-radius: 4px;
+	padding: 20px;
+	margin-bottom: 30px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gastro-form h3 {
+	margin-top: 0;
+}
+
+.gastro-form-group {
+	margin-bottom: 15px;
+}
+
+.gastro-form-group label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: 500;
+	color: var(--heading-color);
+}
+
+.gastro-form-group input[type="text"],
+.gastro-form-group input[type="number"] {
+	width: 100%;
+	min-height: 40px;
+	border: 1px solid var(--border-color);
+	border-radius: 0.5rem;
+	background-color: var(--background-color);
+	color: var(--text-color);
+	font-size: 16px;
+}
+
+/* Remove up/down arrows from number inputs */
+.gastro-form-group input[type="number"]::-webkit-inner-spin-button,
+.gastro-form-group input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+.gastro-form-group input[type="number"] {
+	-moz-appearance: textfield;
+}
+
+.gastro-form-group.toggle label {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.gastro-toggle {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 28px;
+}
+
+.gastro-toggle input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.gastro-toggle-slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: var(--secondary-color);
+	transition: .4s;
+	border-radius: 34px;
+}
+
+.gastro-toggle-slider:before {
+	position: absolute;
+	content: "";
+	height: 20px;
+	width: 20px;
+	left: 4px;
+	bottom: 4px;
+	background-color: rgb(214, 235, 241);
+	transition: .4s;
+	border-radius: 50%;
+}
+
+input:checked+.gastro-toggle-slider {
+	background-color: var(--table-hover);
+}
+
+input:checked+.gastro-toggle-slider:before {
+	transform: translateX(32px);
+}
+
+.gastro-calculation-preview {
+	background-color: rgba(0, 0, 0, 0.05);
+	border-left: 4px solid var(--primary-color);
+	padding: 10px 15px;
+	margin: 15px 0;
+	border-radius: 0 4px 4px 0;
+}
+
+.gastro-form-actions {
+	margin-top: 20px;
+	display: flex;
+	gap: 10px;
+}
+
+/* Button Styles */
+.gastro-btn {
+	padding: 18px 26px;
+	border: none;
+	border-radius: 1.5rem;
+	font-size: 14px;
+	cursor: pointer;
+	transition: background-color 0.2s, opacity 0.2s;
+}
+
+.gastro-btn.primary {
+	background-color: var(--primary-color);
+	color: white;
+}
+
+.gastro-btn.secondary {
+	background-color: var(--primary-color);
+	color: white;
+}
+
+.gastro-btn.danger {
+	background-color: var(--danger-color);
+	color: white;
+}
+
+.gastro-btn:hover {
+	opacity: 0.9;
+}
+
+.gastro-btn:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.gastro-btn.clear-all {
+	margin-top: 15px;
+}
+
+/* Table Styles */
+.gastro-table-container {
+	margin-top: 30px;
+	overflow-x: auto;
+}
+
+.gastro-table {
+	width: 100%;
+	border-collapse: collapse;
+	border: 1px solid var(--border-color);
+	margin-bottom: 15px;
+}
+
+.gastro-table th,
+.gastro-table td {
+	padding: 12px 15px;
+	text-align: left;
+	border-bottom: 1px solid var(--border-color);
+}
+
+/* Add sorting indicators for table headers */
+.gastro-table th {
+	background-color: var(--primary-color);
+	color: rgb(255, 255, 255);
+	font-weight: bold;
+	cursor: pointer;
+	user-select: none;
+	position: relative;
+}
+
+.gastro-table th::after {
+	content: "";
+	margin-left: 5px;
+}
+
+.gastro-table th.sort-asc::after {
+	content: "↑";
+}
+
+.gastro-table th.sort-desc::after {
+	content: "↓";
+}
+
+.gastro-table th:hover {
+	opacity: 0.9;
+}
+
+.gastro-table tbody tr:nth-child(even) {
+	background-color: var(--table-alt-row);
+}
+
+.gastro-table tbody tr:hover {
+	background-color: var(--table-hover);
+}
+
+/* Make table rows clickable */
+.gastro-table tbody tr {
+	cursor: pointer;
+	transition: background-color 0.2s;
+}
+
+.gastro-table tfoot tr {
+	background-color: var(--primary-color);
+	color: white;
+	font-weight: bold;
+}
+
+/* Styling for the buttons container */
+.gastro-table-actions {
+	display: flex;
+	gap: 10px;
+	margin-top: 15px;
+}
+
+.gastro-actions {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 8px;
+	min-height: 40px;
+	/* Ensure consistent height even when text wraps */
+}
+
+.gastro-action-btn {
+	background: none;
+	border: none;
+	font-size: 18px;
+	cursor: pointer;
+	padding: 6px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 30px;
+	min-height: 30px;
+	transition: background-color 0.2s;
+}
+
+.gastro-action-btn:hover {
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+.gastro-no-data {
+	text-align: center;
+	padding: 20px;
+	background-color: var(--table-alt-row);
+	border-radius: 4px;
+	font-style: italic;
+}
+
+/* Modal Styles */
+.gastro-modal-backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: var(--modal-backdrop);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1000;
+	animation: fadeIn 0.3s;
+}
+
+.gastro-modal {
+	background-color: var(--background-color);
+	border-radius: 4px;
+	width: 90%;
+	max-width: 500px;
+	max-height: 80vh;
+	overflow-y: auto;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+	animation: zoomIn 0.3s;
+}
+
+.gastro-modal-header {
+	padding: 15px 20px;
+	border-bottom: 1px solid var(--border-color);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.gastro-modal-header h3 {
+	margin: 0;
+}
+
+.gastro-modal-header .gastro-close-btn {
+	color: var(--text-color);
+	position: static;
+	transform: none;
+}
+
+.gastro-modal-body {
+	padding: 20px;
+	max-height: 50vh;
+	overflow-y: auto;
+}
+
+.gastro-modal-footer {
+	padding: 15px 20px;
+	border-top: 1px solid var(--border-color);
+	display: flex;
+	justify-content: flex-end;
+	gap: 10px;
+}
+
+/* Style for the clear all button in the footer */
+.clear-all-footer {
+	background-color: var(--danger-color);
+	color: white;
+	border: none;
+	padding: 6px 10px;
+	border-radius: 4px;
+	font-size: 12px;
+	cursor: pointer;
+	white-space: nowrap;
+	transition: opacity 0.2s;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.clear-all-footer:hover {
+	opacity: 0.9;
+}
+
+.clear-all-footer:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+/* Animations */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes slideInDown {
+	from {
+		transform: translateY(-20px);
+		opacity: 0;
+	}
+
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes zoomIn {
+	from {
+		transform: scale(0.9);
+		opacity: 0;
+	}
+
+	to {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+	.gastro-form-group.toggle label {
+		flex-direction: row;
+		align-items: space-between;
+	}
+
+	.gastro-toggle {
+		margin-top: 8px;
+	}
+
+	.gastro-table th,
+	.gastro-table td {
+		padding: 6px 4px;
+		font-size: 12px;
+		vertical-align: middle;
+		word-break: break-word;
+	}
+
+	.gastro-table {
+		font-size: 12px;
+		table-layout: fixed;
+		width: 100%;
+	}
+
+	/* Better alignment for action buttons */
+	.gastro-actions {
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: center;
+		gap: 3px;
+	}
+
+	.gastro-action-btn {
+		padding: 3px;
+		font-size: 14px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	/* Make specific columns narrower on mobile */
+	.gastro-table th:nth-child(8),
+	.gastro-table td:nth-child(8) {
+		/* Actions column */
+		width: 70px;
+	}
+
+	.gastro-table th:nth-child(1),
+	.gastro-table td:nth-child(1) {
+		/* Name column */
+		width: 25%;
+	}
+
+	/* Make numeric columns smaller width */
+	.gastro-table th:nth-child(2),
+	.gastro-table th:nth-child(3),
+	.gastro-table th:nth-child(4),
+	.gastro-table th:nth-child(6),
+	.gastro-table td:nth-child(2),
+	.gastro-table td:nth-child(3),
+	.gastro-table td:nth-child(4),
+	.gastro-table td:nth-child(6) {
+		width: 15%;
+	}
+
+	/* Hide less important columns on mobile - updated to hide Flow Cash and Timestamp columns */
+	.gastro-table th:nth-child(5),
+	.gastro-table td:nth-child(5),
+	.gastro-table th:nth-child(7),
+	.gastro-table td:nth-child(7) {
+		display: none;
+	}
+
+	.gastro-modal {
+		width: 95%;
+	}
+}
+
+/* Print styles */
+@media print {
+
+	.gastro-form,
+	.gastro-btn,
+	.gastro-actions,
+	.gastro-confirmation {
+		display: none !important;
+	}
+
+	.gastro-table-container {
+		margin: 0;
+		padding: 0;
+	}
+
+	.gastro-table {
+		width: 100%;
+		border: 1px solid #000;
+	}
+
+	.gastro-table th {
+		background-color: #eee !important;
+		color: #000 !important;
+	}
+}
