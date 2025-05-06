@@ -143,6 +143,25 @@ h3 {
 	opacity: 0.9;
 }
 
+.gastro-logout-btn {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding: 6px 12px;
+	background-color: var(--danger-color);
+	color: white;
+	text-decoration: none;
+	border-radius: 1.5rem;
+	font-size: 14px;
+	margin-left: 8px;
+	transition: opacity 0.2s;
+	cursor: pointer;
+}
+
+.gastro-logout-btn:hover {
+	opacity: 0.9;
+}
+
 /* Message Notifications */
 .gastro-message {
 	padding: 10px 15px;

@@ -122,7 +122,8 @@ class Gastro_Rechner_Main {
             'ajaxUrl' => admin_url('admin-ajax.php'),
             'nonce' => wp_create_nonce('gastro_rechner_nonce'),
             'settings' => $this->get_settings_for_frontend(),
-            'loginUrl' => wp_login_url(get_permalink())
+            'loginUrl' => wp_login_url(get_permalink()),
+            'logoutUrl' => wp_logout_url(get_permalink())
         ]);
     }
 

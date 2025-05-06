@@ -201,6 +201,15 @@ const App = () => {
               <span className="gastro-username">
                 <i className="fas fa-user"></i> {settings.currentUser}
               </span>
+              <a
+                href={
+                  window.gastroRechnerData?.logoutUrl ||
+                  "/wp-login.php?action=logout"
+                }
+                className="gastro-logout-btn"
+              >
+                <i className="fas fa-sign-out-alt"></i> Logout
+              </a>
             </div>
           ) : (
             <a
