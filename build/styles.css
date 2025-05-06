@@ -5,40 +5,74 @@
 	margin: 0 auto;
 	padding: 20px;
 	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
 }
 
 /* Theme Variations */
-.theme-light {
-	--primary-color: #041923;
-	--secondary-color: #123544;
-	--danger-color: #e74c3c;
-	--success-color: #2ecc71;
-	--error-color: #e74c3c;
-	--border-color: #6ad0ff;
-	--background-color: #1a242bfb;
-	--text-color: #ffffff;
-	--heading-color: #7fbcf9;
-	--table-alt-row: #173645;
-	--table-hover: #f96211;
-	--modal-backdrop: rgba(93, 157, 209, 0.31);
-}
-
-.theme-dark {
+.theme-light-cold {
 	--primary-color: #2271b1;
 	--secondary-color: #135e96;
 	--danger-color: #dc3232;
 	--success-color: #46b450;
 	--error-color: #dc3232;
-	--border-color: #444;
-	--background-color: #23282d;
-	--text-color: #bbc8d4;
-	--heading-color: #fff;
-	--table-alt-row: #32373c;
-	--table-hover: #1d2327;
+	--border-color: #c3c4c7;
+	--background-color: #ffffff;
+	--text-color: #3c434a;
+	--heading-color: #2271b1;
+	--table-alt-row: #f0f6fc;
+	--table-hover: #e0f0ff;
 	--modal-backdrop: rgba(0, 0, 0, 0.7);
 }
 
-.gastro-rechner-container.theme-dark {
+.theme-light-warm {
+	--primary-color: #e05d22;
+	--secondary-color: #f78153;
+	--danger-color: #e74c3c;
+	--success-color: #27ae60;
+	--error-color: #e74c3c;
+	--border-color: #d4c1a4;
+	--background-color: #fffaf0;
+	--text-color: #50433f;
+	--heading-color: #b94700;
+	--table-alt-row: #fff5e6;
+	--table-hover: #ffe8cc;
+	--modal-backdrop: rgba(0, 0, 0, 0.7);
+}
+
+.theme-dark-cold {
+	--primary-color: #0e4165;
+	--secondary-color: #39596e;
+	--danger-color: #e74c3c;
+	--success-color: #2ecc71;
+	--error-color: #e74c3c;
+	--border-color: #3f5973;
+	--background-color: #1a2733;
+	--text-color: #e3e3e3;
+	--heading-color: #8fccff;
+	--table-alt-row: #263545;
+	--table-hover: #d56714;
+	--modal-backdrop: rgba(0, 0, 0, 0.8);
+}
+
+.theme-dark-warm {
+	--primary-color: #f0724f;
+	--secondary-color: #b84c30;
+	--danger-color: #e74c3c;
+	--success-color: #27ae60;
+	--error-color: #e74c3c;
+	--border-color: #574337;
+	--background-color: #2a2018;
+	--text-color: #e8d7cb;
+	--heading-color: #ffbd9d;
+	--table-alt-row: #382c22;
+	--table-hover: #483728;
+	--modal-backdrop: rgba(0, 0, 0, 0.8);
+}
+
+/* Apply background styling for dark themes */
+.gastro-rechner-container.theme-dark-cold,
+.gastro-rechner-container.theme-dark-warm {
 	background-color: var(--background-color);
 	color: var(--text-color);
 	border-radius: 4px;
@@ -56,6 +90,57 @@ h3 {
 	color: var(--heading-color);
 	font-size: 18px;
 	margin: 15px 0;
+}
+
+/* Header Layout */
+.gastro-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.gastro-rechner-title {
+	margin: 0;
+}
+
+.gastro-user-section {
+	display: flex;
+	align-items: center;
+}
+
+.gastro-user-info {
+	display: flex;
+	align-items: center;
+	color: var(--heading-color);
+	font-size: 14px;
+}
+
+.gastro-username {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding: 6px 12px;
+	background-color: var(--primary-color);
+	border-radius: 1.5rem;
+	color: white;
+}
+
+.gastro-login-btn {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding: 6px 12px;
+	background-color: var(--primary-color);
+	color: white;
+	text-decoration: none;
+	border-radius: 1.5rem;
+	font-size: 14px;
+	transition: opacity 0.2s;
+}
+
+.gastro-login-btn:hover {
+	opacity: 0.9;
 }
 
 /* Message Notifications */
@@ -94,6 +179,22 @@ h3 {
 	opacity: 1;
 }
 
+/* Info Message */
+.gastro-info-message {
+	background-color: var(--table-alt-row);
+	border-left: 4px solid var(--primary-color);
+	padding: 15px 20px;
+	margin-bottom: 30px;
+	border-radius: 4px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gastro-info-message p {
+	margin: 0;
+	font-size: 14px;
+	color: var(--text-color);
+}
+
 /* Confirmation Card */
 .gastro-confirmation {
 	background-color: var(--background-color);
@@ -126,14 +227,41 @@ h3 {
 	padding: 20px;
 	margin-bottom: 30px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
 }
 
 .gastro-form h3 {
 	margin-top: 0;
+	margin-bottom: 15px;
+}
+
+.gastro-form-groups {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	width: 100%;
+}
+
+@media (min-width: 768px) {
+	.gastro-form-groups {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 20px;
+	}
+
+	.gastro-form-group {
+		flex: 1 1 calc(50% - 10px);
+		min-width: 200px;
+	}
 }
 
 .gastro-form-group {
-	margin-bottom: 15px;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 0;
 }
 
 .gastro-form-group label {
@@ -152,6 +280,7 @@ h3 {
 	background-color: var(--background-color);
 	color: var(--text-color);
 	font-size: 16px;
+	padding: 0 10px;
 }
 
 /* Remove up/down arrows from number inputs */
@@ -163,6 +292,7 @@ h3 {
 
 /* Firefox */
 .gastro-form-group input[type="number"] {
+	appearance: textfield;
 	-moz-appearance: textfield;
 }
 
@@ -228,17 +358,22 @@ input:checked+.gastro-toggle-slider:before {
 .gastro-form-actions {
 	margin-top: 20px;
 	display: flex;
+	flex-wrap: wrap;
 	gap: 10px;
 }
 
 /* Button Styles */
 .gastro-btn {
-	padding: 18px 26px;
+	padding: 12px 20px;
 	border: none;
 	border-radius: 1.5rem;
 	font-size: 14px;
 	cursor: pointer;
 	transition: background-color 0.2s, opacity 0.2s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
 }
 
 .gastro-btn.primary {
@@ -269,88 +404,124 @@ input:checked+.gastro-toggle-slider:before {
 	margin-top: 15px;
 }
 
-/* Table Styles */
+/* Flexbox Table Styles */
 .gastro-table-container {
 	margin-top: 30px;
-	overflow-x: auto;
+	width: 100%;
 }
 
+/* New Flexbox Table */
 .gastro-table {
+	display: flex;
+	flex-direction: column;
 	width: 100%;
-	border-collapse: collapse;
 	border: 1px solid var(--border-color);
 	margin-bottom: 15px;
+	border-radius: 4px;
+	overflow: hidden;
 }
 
-.gastro-table th,
-.gastro-table td {
-	padding: 12px 15px;
-	text-align: left;
-	border-bottom: 1px solid var(--border-color);
+.gastro-table-header,
+.gastro-table-row,
+.gastro-table-footer {
+	display: flex;
+	width: 100%;
 }
 
-/* Add sorting indicators for table headers */
-.gastro-table th {
-	background-color: var(--primary-color);
-	color: rgb(255, 255, 255);
-	font-weight: bold;
-	cursor: pointer;
-	user-select: none;
-	position: relative;
-}
-
-.gastro-table th::after {
-	content: "";
-	margin-left: 5px;
-}
-
-.gastro-table th.sort-asc::after {
-	content: "↑";
-}
-
-.gastro-table th.sort-desc::after {
-	content: "↓";
-}
-
-.gastro-table th:hover {
-	opacity: 0.9;
-}
-
-.gastro-table tbody tr:nth-child(even) {
-	background-color: var(--table-alt-row);
-}
-
-.gastro-table tbody tr:hover {
-	background-color: var(--table-hover);
-}
-
-/* Make table rows clickable */
-.gastro-table tbody tr {
-	cursor: pointer;
-	transition: background-color 0.2s;
-}
-
-.gastro-table tfoot tr {
+.gastro-table-header {
 	background-color: var(--primary-color);
 	color: white;
 	font-weight: bold;
 }
 
-/* Styling for the buttons container */
-.gastro-table-actions {
+.gastro-table-cell {
+	flex: 1;
+	padding: 12px 15px;
+	text-align: left;
 	display: flex;
-	gap: 10px;
-	margin-top: 15px;
+	align-items: center;
+}
+
+.gastro-table-header .gastro-table-cell {
+	cursor: pointer;
+	user-select: none;
+	position: relative;
+	font-weight: bold;
+	color: white;
+}
+
+.gastro-table-header .gastro-table-cell::after {
+	content: "";
+	margin-left: 5px;
+}
+
+.gastro-table-header .gastro-table-cell.sort-asc::after {
+	content: "↑";
+}
+
+.gastro-table-header .gastro-table-cell.sort-desc::after {
+	content: "↓";
+}
+
+.gastro-table-header .gastro-table-cell:hover {
+	opacity: 0.9;
+}
+
+.gastro-table-rows {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.gastro-table-row {
+	border-bottom: 1px solid var(--border-color);
+	cursor: pointer;
+	transition: background-color 0.2s;
+}
+
+.gastro-table-row:last-child {
+	border-bottom: none;
+}
+
+.gastro-table-row:nth-child(even) {
+	background-color: var(--table-alt-row);
+}
+
+.gastro-table-row:hover {
+	background-color: var(--table-hover);
+}
+
+.gastro-table-footer {
+	background-color: var(--primary-color);
+	color: white;
+	font-weight: bold;
+}
+
+/* Cell widths */
+.gastro-table-cell.name {
+	flex: 2;
+}
+
+.gastro-table-cell.number {
+	flex: 1;
+}
+
+.gastro-table-cell.toggle {
+	flex: 0.7;
+	justify-content: center;
+}
+
+.gastro-table-cell.actions {
+	flex: 0.8;
+	justify-content: center;
 }
 
 .gastro-actions {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: flex-start;
+	justify-content: center;
 	gap: 8px;
-	min-height: 40px;
-	/* Ensure consistent height even when text wraps */
 }
 
 .gastro-action-btn {
@@ -373,6 +544,7 @@ input:checked+.gastro-toggle-slider:before {
 }
 
 .gastro-no-data {
+	width: 100%;
 	text-align: center;
 	padding: 20px;
 	background-color: var(--table-alt-row);
@@ -500,81 +672,129 @@ input:checked+.gastro-toggle-slider:before {
 
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
+	.gastro-rechner-container {
+		width: 100%;
+		min-width: auto;
+		max-width: 100%;
+		padding: 10px;
+		overflow-x: hidden;
+	}
+
+	.gastro-header {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 10px;
+	}
+
+	.gastro-user-section {
+		width: 100%;
+		justify-content: flex-start;
+	}
+
 	.gastro-form-group.toggle label {
 		flex-direction: row;
-		align-items: space-between;
-	}
-
-	.gastro-toggle {
-		margin-top: 8px;
-	}
-
-	.gastro-table th,
-	.gastro-table td {
-		padding: 6px 4px;
-		font-size: 12px;
-		vertical-align: middle;
-		word-break: break-word;
-	}
-
-	.gastro-table {
-		font-size: 12px;
-		table-layout: fixed;
-		width: 100%;
-	}
-
-	/* Better alignment for action buttons */
-	.gastro-actions {
-		display: flex;
-		flex-wrap: nowrap;
-		justify-content: center;
-		gap: 5px;
-		padding-right: 5px;
-	}
-
-	.gastro-action-btn {
-		padding: 3px;
-		font-size: 14px;
-		display: flex;
 		align-items: center;
-		justify-content: center;
+		justify-content: space-between;
 	}
 
-	/* Make specific columns narrower on mobile */
-	.gastro-table th:nth-child(8),
-	.gastro-table td:nth-child(8) {
-		/* Actions column */
-		width: 70px;
+	/* Flexbox Mobile Table */
+	.gastro-table-header {
+		display: none;
+		/* Hide headers on mobile */
 	}
 
-	.gastro-table th:nth-child(1),
-	.gastro-table td:nth-child(1) {
-		/* Name column */
-		width: 25%;
+	.gastro-table-row {
+		flex-direction: column;
+		padding: 10px;
+		border-bottom: 2px solid var(--border-color);
 	}
 
-	/* Make numeric columns smaller width */
-	.gastro-table th:nth-child(2),
-	.gastro-table th:nth-child(3),
-	.gastro-table th:nth-child(4),
-	.gastro-table th:nth-child(6),
-	.gastro-table td:nth-child(2),
-	.gastro-table td:nth-child(3),
-	.gastro-table td:nth-child(4),
-	.gastro-table td:nth-child(6) {
-		width: 15%;
+	.gastro-table-cell {
+		flex: 1;
+		padding: 8px 4px;
+		font-size: 14px;
+		border-bottom: 1px solid var(--border-color);
+		position: relative;
 	}
 
-	/* Hide less important columns on mobile - updated to hide Flow Cash and Timestamp columns */
-	.gastro-table th:nth-child(5),
-	.gastro-table td:nth-child(5),
-	.gastro-table th:nth-child(7),
-	.gastro-table td:nth-child(7) {
+	.gastro-table-cell:last-child {
+		border-bottom: none;
+	}
+
+	/* Add data labels for mobile */
+	.gastro-table-cell:before {
+		content: attr(data-label);
+		font-weight: bold;
+		width: 40%;
+		display: inline-block;
+		color: var(--heading-color);
+	}
+
+	.gastro-table-cell.actions {
+		justify-content: flex-start;
+	}
+
+	.gastro-table-cell.actions:before {
 		display: none;
 	}
 
-	.gastro-modal {
-		width: 95%;
+	.gastro-table-footer {
+		display: flex;
+		flex-direction: column;
+		padding-right: 20px;
+		width: 100%;
+		overflow-x: hidden;
+	}
+
+	.gastro-table-footer .gastro-table-cell {
+		justify-content: space-between;
+		width: 100%;
+		box-sizing: border-box;
+		word-break: break-word;
+		padding: 8px 4px;
+	}
+
+	.gastro-table-footer .gastro-table-cell:before {
+		color: white;
+		width: 45%;
+	}
+
+	.gastro-table-footer .gastro-table-cell.actions {
+		justify-content: center;
+		padding-top: 15px;
+	}
+
+	.gastro-table-footer .gastro-table-cell.actions:before {
+		display: none;
+	}
+
+	.clear-all-footer {
+		width: auto;
+	}
+
+	.gastro-table-footer .gastro-table-cell:before {
+		color: white;
+	}
+
+	/* Keep action buttons well spaced */
+	.gastro-actions {
+		width: 100%;
+		justify-content: flex-start;
+		gap: 15px;
+	}
+
+	.gastro-action-btn {
+		padding: 8px;
+		font-size: 16px;
+	}
+
+	.gastro-form-actions {
+		flex-direction: column;
+		width: 100%;
+	}
+
+	.gastro-btn {
+		width: 100%;
 	}
 }
 
@@ -601,5 +821,13 @@ input:checked+.gastro-toggle-slider:before {
 	.gastro-table th {
 		background-color: #eee !important;
 		color: #000 !important;
+	}
+
+	.clear-all-footer {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
 	}
 }
